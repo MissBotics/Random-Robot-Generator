@@ -79,6 +79,7 @@ async function rollRobot() {
   ]);
 
   serialEl.textContent = randomSerial();
+  loadingBar.classList.remove("active");
   rollBtn.disabled = false;
 }
 
@@ -89,8 +90,4 @@ partButtons.forEach((btn) => {
     const category = btn.dataset.row;
     spinRow(category, 500);
   });
-});
-
-serialEl.addEventListener("click", () => {
-  serialEl.textContent = randomSerial();
 });

@@ -1,14 +1,14 @@
 :root {
-  --bg: #170f2b;
-  --panel: #251a42;
-  --panel-border: #4a3670;
-  --ink: #0e0a1a;
-  --pink: #ff3d9a;
-  --pink-bright: #ff77c2;
-  --mint: #59f0c5;
-  --yellow: #ffe45e;
+  --bg: #14131f;
+  --panel: #1e1c31;
+  --panel-border: hsl(250, 22%, 25%);
+  --ink: #0e0a1a80;
+  --pink: #ff5da2;
+  --pink-bright: #ff77b1;
+  --mint: #6ee7c0;
+
   --lilac: #c9b6ff;
-  --text: #fbf6ff;
+  --text: #f1eefb;
   --text-muted: #b7a9d9;
 
   --font-pixel: 'Press Start 2P', 'JetBrains Mono', monospace;
@@ -42,10 +42,10 @@ body {
   z-index: 0;
   pointer-events: none;
   background-image:
-    repeating-linear-gradient(0deg,  rgba(255, 119, 194, 0.16) 0 1px, transparent 1px 100px),
-    repeating-linear-gradient(90deg, rgba(255, 119, 194, 0.16) 0 1px, transparent 1px 100px),
-    repeating-linear-gradient(0deg,  rgba(89, 240, 197, 0.07) 0 1px, transparent 1px 20px),
-    repeating-linear-gradient(90deg, rgba(89, 240, 197, 0.07) 0 1px, transparent 1px 20px);
+    repeating-linear-gradient(0deg,  rgba(201, 182, 255, 0.18) 0 1px, transparent 1px 100px),
+    repeating-linear-gradient(90deg, rgba(201, 182, 255, 0.18) 0 1px, transparent 1px 100px),
+    repeating-linear-gradient(0deg,  rgba(201, 182, 255, 0.06) 0 1px, transparent 1px 20px),
+    repeating-linear-gradient(90deg, rgba(201, 182, 255, 0.06) 0 1px, transparent 1px 20px);
 }
 
 .wrap {
@@ -63,16 +63,16 @@ body {
   justify-content: center;
   gap: 10px;
   font-family: var(--font-pixel);
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: 0.14em;
   color: var(--mint);
   margin: 0 0 22px;
   text-shadow: 2px 2px 0 var(--ink);
 }
 
-.eyebrow -icon {
-  width: 20px;
-  height: 20px;
+.eyebrow-icon {
+  width: 18px;
+  height: 18px;
   image-rendering: pixelated;
 }
 
@@ -229,7 +229,7 @@ body {
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 17px;
-  color: var(--yellow);
+  color: var(--mint);
   text-align: right;
   transition: opacity 0.06s ease;
 }
@@ -284,7 +284,7 @@ body {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  width: 90px;
+  width: 70px;
   height: auto;
   z-index: 1;
   pointer-events: none;
