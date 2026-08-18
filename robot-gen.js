@@ -24,7 +24,6 @@ const PARTS = {
 const rollBtn = document.getElementById("rollBtn");
 const scanLine = document.getElementById("scanLine");
 const serialEl = document.getElementById("serial");
-const loadingBar = document.getElementById("loadingBar");
 const partButtons = document.querySelectorAll(".part-btn");
 
 function randomFrom(list) {
@@ -79,7 +78,6 @@ async function rollRobot() {
   ]);
 
   serialEl.textContent = randomSerial();
-  loadingBar.classList.remove("active");
   rollBtn.disabled = false;
 }
 
