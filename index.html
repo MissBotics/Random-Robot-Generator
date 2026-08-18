@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Robot Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="blueprint-grid" aria-hidden="true"></div>
+
+<main class="wrap">
+
+  <p class="eyebrow">MISSBOTICS LAB</p>
+  <h1 class="title">Random Robot Generator</h1>
+  <p class="subtitle">The generator stitchs together parts from real and fictional robots!</p>
+
+  <section class="card" id="card">
+    <div class="scan-line" id="scanLine" aria-hidden="true"></div>
+
+    <div class="card-top">
+      <span class="serial" id="serial">SERIAL NO. PENDING</span>
+    </div>
+
+    <div class="part-buttons" id="partButtons">
+      <button class="part-btn" data-row="locomotion" aria-label="Reroll locomotion">
+        <span class="part-label">Locomotion</span>
+        <span class="part-value" id="val-locomotion">&mdash;</span>
+      </button>
+      <button class="part-btn" data-row="head" aria-label="Reroll head">
+        <span class="part-label">Head</span>
+        <span class="part-value" id="val-head">&mdash;</span>
+      </button>
+      <button class="part-btn" data-row="arms" aria-label="Reroll arms">
+        <span class="part-label">Arms</span>
+        <span class="part-value" id="val-arms">&mdash;</span>
+      </button>
+      <button class="part-btn" data-row="extras" aria-label="Reroll extras">
+        <span class="part-label">Extras</span>
+        <span class="part-value" id="val-extras">&mdash;</span>
+      </button>
+    </div>
+
+    <button class="roll-btn" id="rollBtn">
+      <span class="roll-btn-label">Roll a Robot</span>
+    </button>
+  </section>
+
+</main>
+
+<img class="corner-mascot" src="missbotics.png" alt="" aria-hidden="true">
+<script src="robot-gen.js"></script>
+</body>
+</html>
