@@ -13,17 +13,27 @@
 
 <div class="blueprint-grid" aria-hidden="true"></div>
 
+<img class="corner-mascot" src="images/missbotics.png" alt="" aria-hidden="true">
+
 <main class="wrap">
 
-  <p class="eyebrow">MISSBOTICS LAB</p>
-  <h1 class="title">Random Robot Generator</h1>
+  <p class="eyebrow">
+    <img class="logo" src="images/star.svg" alt="" aria-hidden="true">
+    MISSBOTICS LAB
+  </p>
+  
+  <div class="title-row">
+    <img class="logo" src="images/donu.svg" alt="" aria-hidden="true">
+    <h1 class="title">Random Robot Generator</h1>
+  </div>
+  
   <p class="subtitle">The generator stitchs together parts from real and fictional robots!</p>
 
   <section class="card" id="card">
     <div class="scan-line" id="scanLine" aria-hidden="true"></div>
 
     <div class="card-top">
-      <span class="serial" id="serial">SERIAL NO. PENDING</span>
+      <button class="serial" id="serial" type="button" aria-label="Generate a new serial number">SERIAL NO. PENDING</button>
     </div>
 
     <div class="part-buttons" id="partButtons">
@@ -39,6 +49,10 @@
         <span class="part-label">Arms</span>
         <span class="part-value" id="val-arms">&mdash;</span>
       </button>
+      <button class="part-btn" data-row="colour" aria-label="Reroll colour">
+        <span class="part-label">Colour</span>
+        <span class="part-value" id="val-colour">&mdash;</span>
+      </button>
       <button class="part-btn" data-row="extras" aria-label="Reroll extras">
         <span class="part-label">Extras</span>
         <span class="part-value" id="val-extras">&mdash;</span>
@@ -48,11 +62,12 @@
     <button class="roll-btn" id="rollBtn">  
         <span class="roll-btn-label">Roll a Robot</span>
     </button>
+    
+    <img class="loading-bar" id="loadingBar" src="images/loading-img.svg" alt="" aria-hidden="true">
   </section>
 
 </main>
 
-<img class="corner-mascot" src="images/missbotics.png" alt="" aria-hidden="true">
 <script src="robot-gen.js"></script>
 </body>
 </html>

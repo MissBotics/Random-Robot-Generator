@@ -1,25 +1,30 @@
 // Edit these to add your own robots in the generator :)
 const PARTS = {
   locomotion: [
-    "Mars Rover", "BB-8", "WALL-E", "M-O", "Roomba", "Johnny 5",
-    "Robot B-9 (Lost in Space)", "Spot", "BigDog",
-    "Claptrap", "Astro Boy", "Quadcopter", "EVE", "Portal Turret"
+    "Mars Rover", "BB-8", "WALL-E", "Roomba", "Johnny 5",
+    "Robot B-9 (Lost in Space)", "Spot", "M-O",
+    "Claptrap", "Quadcopter", "Portal Turret", "TARS"
   ],
   head: [
-    "R2-D2", "Gundam", "Bender", "WALL-E", "Linguo", "ED-E", "TARS", "Robby the Robot"
+    "Mars Rover", "BB-8", "WALL-E", "M-O", "AIBO", "Johnny 5",
+    "R2-D2", "Gundam", "Bender", "Linguo", "ED-E", "Robby the Robot"
   ],
   arms: [
-    "GLaDOS", "Stretch", "ED-209", "Mars Rover", "Gundam", "WALL-E"
+    "M-O", "BB-8", "Bender", "ED-209", "Gundam", "WALL-E"
+  ],
+  colour: [
+    "BB-8", "Spot", "Claptrap", "R2-D2", "Astro Boy", "EVE", "Bender", "Gundam"
   ],
   extras: [
-    "HAL 9000", "AIBO", "M-O", "Roomba", "Portal Turret",
-    "Claptrap", "Johnny 5", "BB-8"
+    "HAL 9000", "Mars Rover: drill", "AIBO", "M-O: red button", "Portal Turret",
+    "Claptrap", "Johnny 5", "BB-8", "ED-E", "ED-209"
   ]
 };
 
 const rollBtn = document.getElementById("rollBtn");
 const scanLine = document.getElementById("scanLine");
 const serialEl = document.getElementById("serial");
+const loadingBar = document.getElementById("loadingBar");
 const partButtons = document.querySelectorAll(".part-btn");
 
 function randomFrom(list) {
@@ -69,6 +74,7 @@ async function rollRobot() {
     spinRow("locomotion", 650),
     spinRow("head", 800),
     spinRow("arms", 950),
+    spinRow("colour", 1000),
     spinRow("extras", 1100)
   ]);
 
@@ -85,7 +91,6 @@ partButtons.forEach((btn) => {
   });
 });
 
-window.addEventListener("DOMContentLoaded", () => {
+serialEl.addEventListener("click", () => {
   serialEl.textContent = randomSerial();
-  rollRobot();
 });
