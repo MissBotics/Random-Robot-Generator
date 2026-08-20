@@ -22,9 +22,12 @@ const PARTS = {
 };
 
 const rollBtn = document.getElementById("rollBtn");
+const rollBtnLabel = document.getElementById("rollBtnLabel");
 const scanLine = document.getElementById("scanLine");
 const serialEl = document.getElementById("serial");
 const partButtons = document.querySelectorAll(".part-btn");
+
+const ROLL_BTN_DEFAULT_LABEL = rollBtnLabel.textContent;
 
 function randomFrom(list) {
   return list[Math.floor(Math.random() * list.length)];
@@ -61,9 +64,28 @@ function spinRow(category, durationMs) {
   });
 }
 
+function spinSerial(durationMs) {
+  return new Promise((resolve) => {
+    const finalValue = randomSerial();
+    const intervalMs = 55;
+    const ticks = Math.floor(durationMs / intervalMs);
+    let count = 0;
+ 
+    const timer = setInterval(() => {
+      serialEl.textContent = randomSerial();
+      count++;
+      if (count >= ticks) {
+        clearInterval(timer);
+        serialEl.textContent = finalValue;
+        resolve(finalValue);
+      }
+    }, intervalMs);
+  });
+}
+
 async function rollRobot() {
   rollBtn.disabled = true;
-  serialEl.textContent = "SCANNING...";
+  rollBtnLabel.textContent = "Loading...";
 
   scanLine.classList.remove("active");
   void scanLine.offsetWidth; // restart animation
@@ -74,10 +96,11 @@ async function rollRobot() {
     spinRow("head", 800),
     spinRow("arms", 950),
     spinRow("colour", 1000),
-    spinRow("extras", 1100)
+    spinRow("extras", 1100),
+    spinSerial(900)
   ]);
 
-  serialEl.textContent = randomSerial();
+  rollBtnLabel.textContent = ROLL_BTN_DEFAULT_LABEL;
   rollBtn.disabled = false;
 }
 
@@ -88,4 +111,8 @@ partButtons.forEach((btn) => {
     const category = btn.dataset.row;
     spinRow(category, 500);
   });
+});
+
+serialEl.addEventListener("click", () => {
+  spinSerial(500);
 });
